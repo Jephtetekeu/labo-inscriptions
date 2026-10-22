@@ -11,4 +11,3 @@ public class FraisInscription {
         return boursier ? base / 2 : base;
     }
 }
-.
