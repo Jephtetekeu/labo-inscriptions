@@ -1,4 +1,5 @@
 package cm.laboacademy.inscriptions;
+import java.time.LocalDate;
 
 public class FraisInscription {
 
@@ -9,5 +10,14 @@ public class FraisInscription {
             default -> throw new IllegalArgumentException("Niveau inconnu : " + niveau);
         };
         return boursier ? base / 2 : base;
+    }
+
+    public int calculer(String niveau, boolean boursier,
+                        LocalDate dateInscription, LocalDate dateLimite) {
+        int montant = calculer(niveau, boursier);
+        if (!dateInscription.isAfter(dateLimite)) {
+            montant = montant * 90 / 100;
+        }
+        return montant;
     }
 }
